@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface NavigationProps {
   onJoinClick?: () => void;
 }
@@ -17,12 +19,20 @@ export default function Navigation({ onJoinClick }: NavigationProps) {
       <div className="text-xl font-black tracking-tighter cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
         CORE INSIGHT
       </div>
-      <button 
-        onClick={handleScrollToCTA}
-        className="px-6 py-2 text-sm font-medium text-white bg-black rounded-full hover:bg-neutral-800 transition-colors"
-      >
-        신청하기
-      </button>
+      <div className="flex items-center gap-3">
+        <Link
+          to="/login"
+          className="px-6 py-2 text-sm font-medium text-black border border-black rounded-full hover:bg-neutral-100 transition-colors"
+        >
+          로그인
+        </Link>
+        <button
+          onClick={handleScrollToCTA}
+          className="px-6 py-2 text-sm font-medium text-white bg-black rounded-full hover:bg-neutral-800 transition-colors"
+        >
+          신청하기
+        </button>
+      </div>
     </nav>
   );
 }
